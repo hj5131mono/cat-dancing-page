@@ -4,7 +4,7 @@ import DancingCat from './components/DancingCat'
 function App() {
   return (
     <div className="App">
-      <h1>Dancing Cat Animation</h1>
+      <h1>냥춤타임 🐱✨</h1>
       <DancingCat />
     </div>
   )
