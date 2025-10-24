@@ -1,23 +1,13 @@
 @keyframes neonGlow {
   0%, 100% {
     text-shadow:
-      0 0 10px #fff,
-      0 0 20px #FFB6C1,
-      0 0 30px #FF69B4,
-      0 0 40px #FF1493,
-      0 0 50px #FF1493,
-      0 4px 6px rgba(0, 0, 0, 0.3);
-    transform: scale(1);
+      0 0 10px rgba(102, 126, 234, 0.5),
+      0 0 20px rgba(118, 75, 162, 0.3);
   }
   50% {
     text-shadow:
-      0 0 5px #fff,
-      0 0 15px #DDA0DD,
-      0 0 25px #BA55D3,
-      0 0 35px #9370DB,
-      0 0 45px #8A2BE2,
-      0 4px 6px rgba(0, 0, 0, 0.3);
-    transform: scale(1.05);
+      0 0 15px rgba(102, 126, 234, 0.8),
+      0 0 30px rgba(118, 75, 162, 0.5);
   }
 }
 
@@ -33,19 +23,15 @@
 
 .App h1 {
   color: white;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   margin-bottom: 15px;
-  text-transform: none;
-  font-weight: 900;
-  letter-spacing: 2px;
-  animation: neonGlow 2.5s ease-in-out infinite;
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: neonGlow 3s ease-in-out infinite;
   flex-shrink: 0;
-  background: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 50%, #BA55D3 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.6));
-  padding: 10px;
+  text-shadow:
+    0 0 10px rgba(102, 126, 234, 0.5),
+    0 0 20px rgba(118, 75, 162, 0.3);
 }
 
 @media (max-width: 768px) {

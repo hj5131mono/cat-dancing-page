@@ -125,25 +125,25 @@ function DancingCat() {
       <div className="controls">
         <div className="button-group">
           <button onClick={handleJump} className="control-button jump-btn">
-            점프ㄱㄱ 🚀
+            점프
           </button>
           <button
             onClick={handleDance}
             className={`control-button dance-btn ${animationType === 'dance' ? 'active' : ''}`}
           >
-            {animationType === 'dance' ? '스톱 ⏸' : '춤타임 💃'}
+            {animationType === 'dance' ? '정지' : '댄스'}
           </button>
           <button
             onClick={handleCrazy}
             className={`control-button crazy-btn ${animationType === 'crazy' ? 'active' : ''}`}
           >
-            {animationType === 'crazy' ? '진정해 🛑' : '미쳤다ㅋㅋ 🔥'}
+            {animationType === 'crazy' ? '스톱' : '크레이지'}
           </button>
         </div>
 
         <div className="speed-control">
           <label htmlFor="speed-slider">
-            속도 조절 ⚡ {speed.toFixed(1)}x
+            속도 {speed.toFixed(1)}x
           </label>
           <input
             id="speed-slider"
@@ -156,9 +156,9 @@ function DancingCat() {
             className="speed-slider"
           />
           <div className="speed-labels">
-            <span>느리게🐌</span>
-            <span>적당히😎</span>
-            <span>빠르게⚡</span>
+            <span>느리게</span>
+            <span>보통</span>
+            <span>빠르게</span>
           </div>
         </div>
       </div>
