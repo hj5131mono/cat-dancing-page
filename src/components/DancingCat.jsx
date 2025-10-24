@@ -73,17 +73,17 @@ function DancingCat() {
         audioRef.current.play()
       }
 
-      // Start crazy movement
+      // Start DOPE mode - 진짜 미친 움직임
       crazyIntervalRef.current = setInterval(() => {
-        const randomX = Math.random() * window.innerWidth * 0.6 - window.innerWidth * 0.3
-        const randomY = Math.random() * window.innerHeight * 0.6 - window.innerHeight * 0.3
-        const randomRotation = Math.random() * 720 - 360
-        const randomScale = 0.5 + Math.random() * 1.5
+        const randomX = Math.random() * window.innerWidth * 0.8 - window.innerWidth * 0.4
+        const randomY = Math.random() * window.innerHeight * 0.8 - window.innerHeight * 0.4
+        const randomRotation = Math.random() * 1080 - 540 // 더 많이 회전
+        const randomScale = 0.3 + Math.random() * 2 // 더 극단적인 크기 변화
 
         setCrazyPosition({ x: randomX, y: randomY })
         setCrazyRotation(randomRotation)
         setCrazyScale(randomScale)
-      }, 300 + Math.random() * 400)
+      }, 100 + Math.random() * 200) // 더 빠르게!
     }
   }
 
@@ -112,7 +112,7 @@ function DancingCat() {
   }
 
   return (
-    <div className="dancing-cat-container">
+    <div className={`dancing-cat-container ${animationType === 'crazy' ? 'dope-container' : ''}`}>
       <div className={`cat-wrapper ${animationType === 'crazy' ? 'crazy-mode' : ''}`}>
         <img
           src={catImage}
@@ -125,25 +125,25 @@ function DancingCat() {
       <div className="controls">
         <div className="button-group">
           <button onClick={handleJump} className="control-button jump-btn">
-            점프
+            jump
           </button>
           <button
             onClick={handleDance}
             className={`control-button dance-btn ${animationType === 'dance' ? 'active' : ''}`}
           >
-            {animationType === 'dance' ? '정지' : '댄스'}
+            {animationType === 'dance' ? 'pause' : 'dance'}
           </button>
           <button
             onClick={handleCrazy}
             className={`control-button crazy-btn ${animationType === 'crazy' ? 'active' : ''}`}
           >
-            {animationType === 'crazy' ? '스톱' : '크레이지'}
+            {animationType === 'crazy' ? 'chill' : 'dope'}
           </button>
         </div>
 
         <div className="speed-control">
           <label htmlFor="speed-slider">
-            속도 {speed.toFixed(1)}x
+            speed {speed.toFixed(1)}x
           </label>
           <input
             id="speed-slider"
@@ -156,16 +156,16 @@ function DancingCat() {
             className="speed-slider"
           />
           <div className="speed-labels">
-            <span>느리게</span>
-            <span>보통</span>
-            <span>빠르게</span>
+            <span>slow</span>
+            <span>chill</span>
+            <span>fast</span>
           </div>
         </div>
       </div>
 
-      {/* Background Music */}
+      {/* Lo-Fi Background Music */}
       <audio ref={audioRef} loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-happyrock.mp3" type="audio/mpeg" />
+        <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg" />
       </audio>
     </div>
   )

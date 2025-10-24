@@ -22,16 +22,14 @@
 }
 
 .App h1 {
-  color: white;
-  font-size: 2.2rem;
+  color: #F5E6D3;
+  font-size: 2.5rem;
   margin-bottom: 15px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  animation: neonGlow 3s ease-in-out infinite;
+  font-weight: 400;
+  letter-spacing: 3px;
   flex-shrink: 0;
-  text-shadow:
-    0 0 10px rgba(102, 126, 234, 0.5),
-    0 0 20px rgba(118, 75, 162, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-style: italic;
 }
 
 @media (max-width: 768px) {
