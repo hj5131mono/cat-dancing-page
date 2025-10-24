@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import catImage from '../assets/images/cat.svg'
+import flyingDollar from '../assets/images/flying-dollar.svg'
 import '../styles/animations.css'
 
 function DancingCat() {
@@ -11,7 +12,9 @@ function DancingCat() {
   const [crazyRotation, setCrazyRotation] = useState(0)
   const [crazyScale, setCrazyScale] = useState(1)
   const audioRef = useRef(null)
+  const danceAudioRef = useRef(null)
   const crazyIntervalRef = useRef(null)
+  const [showDonationPopup, setShowDonationPopup] = useState(false)
 
   // Random dance animation changer
   useEffect(() => {
@@ -27,8 +30,21 @@ function DancingCat() {
   }, [animationType])
 
   const handleJump = () => {
-    setAnimationType('jump')
-    setIsPlaying(true)
+    if (crazyIntervalRef.current) {
+      clearInterval(crazyIntervalRef.current)
+      crazyIntervalRef.current = null
+    }
+
+    if (animationType === 'jump') {
+      // Already jumping - trigger another jump by resetting
+      setAnimationType('none')
+      setTimeout(() => {
+        setAnimationType('jump')
+      }, 10)
+    } else {
+      setAnimationType('jump')
+      setIsPlaying(true)
+    }
   }
 
   const handleDance = () => {
@@ -40,14 +56,14 @@ function DancingCat() {
     if (animationType === 'dance') {
       setAnimationType('none')
       setIsPlaying(false)
-      if (audioRef.current) {
-        audioRef.current.pause()
+      if (danceAudioRef.current) {
+        danceAudioRef.current.pause()
       }
     } else {
       setAnimationType('dance')
       setIsPlaying(true)
-      if (audioRef.current) {
-        audioRef.current.play()
+      if (danceAudioRef.current) {
+        danceAudioRef.current.play()
       }
     }
   }
@@ -91,6 +107,14 @@ function DancingCat() {
     setSpeed(parseFloat(e.target.value))
   }
 
+  const handleDonation = () => {
+    setShowDonationPopup(true)
+  }
+
+  const closeDonationPopup = () => {
+    setShowDonationPopup(false)
+  }
+
   const animationDuration = 2 / speed
 
   let animationClass = ''
@@ -113,6 +137,11 @@ function DancingCat() {
 
   return (
     <div className={`dancing-cat-container ${animationType === 'crazy' ? 'dope-container' : ''}`}>
+      {/* Donation Button */}
+      <button className="donation-button" onClick={handleDonation} title="Support me!">
+        <img src={flyingDollar} alt="Donate" className="dollar-icon" />
+      </button>
+
       <div className={`cat-wrapper ${animationType === 'crazy' ? 'crazy-mode' : ''}`}>
         <img
           src={catImage}
@@ -163,10 +192,39 @@ function DancingCat() {
         </div>
       </div>
 
-      {/* Lo-Fi Background Music */}
-      <audio ref={audioRef} loop>
+      {/* Background Music - Default Lofi */}
+      <audio ref={audioRef} loop autoPlay>
         <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg" />
       </audio>
+
+      {/* Dance Music - Heavy Bass & Kick */}
+      <audio ref={danceAudioRef} loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-energy.mp3" type="audio/mpeg" />
+      </audio>
+
+      {/* Donation Popup */}
+      {showDonationPopup && (
+        <div className="donation-popup-overlay" onClick={closeDonationPopup}>
+          <div className="donation-popup" onClick={(e) => e.stopPropagation()}>
+            <button className="close-popup" onClick={closeDonationPopup}>×</button>
+            <h2>후원해주세요! 💖</h2>
+            <p className="donation-message">
+              vibin' cat이 마음에 드셨나요?<br />
+              커피 한 잔의 여유로 응원해주세요!
+            </p>
+            <div className="account-info">
+              <p className="account-label">후원 계좌번호</p>
+              <p className="account-number">국민은행 653202-04-129363</p>
+            </div>
+            <button className="copy-button" onClick={() => {
+              navigator.clipboard.writeText('653202-04-129363')
+              alert('계좌번호가 복사되었습니다!')
+            }}>
+              계좌번호 복사
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

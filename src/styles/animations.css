@@ -349,6 +349,13 @@
 /* DOPE MODE - CRAZY EFFECTS */
 .dope-container {
   animation: screenGlitch 0.15s infinite, backgroundFlash 0.3s infinite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 9997;
 }
 
 @keyframes screenGlitch {
@@ -366,7 +373,11 @@
 }
 
 .cat-wrapper.crazy-mode {
-  position: fixed;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -140px;
+  margin-top: -140px;
   z-index: 9999;
   background: transparent;
   box-shadow: 0 0 80px rgba(255, 0, 255, 1);
@@ -629,6 +640,173 @@
   }
 }
 
+/* Donation Button */
+.donation-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 70px;
+  height: 70px;
+  border: none;
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+  transition: all 0.3s ease;
+  z-index: 10000;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donation-button:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.6);
+}
+
+.donation-button:active {
+  transform: scale(0.95);
+}
+
+.dollar-icon {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+}
+
+/* Donation Popup Overlay */
+.donation-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Donation Popup */
+.donation-popup {
+  background: linear-gradient(135deg, #F5E6D3 0%, #E8D5C4 100%);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  position: relative;
+  animation: popupSlide 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  text-align: center;
+}
+
+@keyframes popupSlide {
+  from {
+    transform: scale(0.5) translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.close-popup {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.close-popup:hover {
+  background: rgba(0, 0, 0, 0.4);
+  transform: rotate(90deg);
+}
+
+.donation-popup h2 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.donation-message {
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.account-info {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  border: 2px dashed #B8967D;
+}
+
+.account-label {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.account-number {
+  color: #2E7D32;
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 1px;
+}
+
+.copy-button {
+  background: linear-gradient(135deg, #85BB65 0%, #6BA54A 100%);
+  color: white;
+  border: none;
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(133, 187, 101, 0.4);
+  transition: all 0.3s ease;
+}
+
+.copy-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(133, 187, 101, 0.6);
+}
+
+.copy-button:active {
+  transform: translateY(0);
+}
+
 /* Accessibility - Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .cat-wrapper.dancing .cat-image {
@@ -637,5 +815,46 @@
 
   .control-button {
     transition: none;
+  }
+
+  .donation-popup-overlay,
+  .donation-popup {
+    animation: none;
+  }
+}
+
+/* Responsive for donation popup */
+@media (max-width: 480px) {
+  .donation-button {
+    width: 60px;
+    height: 60px;
+    top: 15px;
+    right: 15px;
+  }
+
+  .dollar-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .donation-popup {
+    padding: 30px 20px;
+  }
+
+  .donation-popup h2 {
+    font-size: 1.5rem;
+  }
+
+  .donation-message {
+    font-size: 1rem;
+  }
+
+  .account-number {
+    font-size: 1.1rem;
+  }
+
+  .copy-button {
+    padding: 12px 25px;
+    font-size: 1rem;
   }
 }

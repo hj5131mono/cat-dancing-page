@@ -1,0 +1,60 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Left Wing -->
+  <g id="left-wing">
+    <ellipse cx="50" cy="100" rx="35" ry="60" fill="#F5E6D3" opacity="0.9">
+      <animate attributeName="ry" values="60;70;60" dur="1.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.9;1;0.9" dur="1.5s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="45" cy="95" rx="30" ry="50" fill="#FFD700" opacity="0.7">
+      <animate attributeName="ry" values="50;60;50" dur="1.5s" repeatCount="indefinite"/>
+    </ellipse>
+    <!-- Wing feathers -->
+    <path d="M 30 80 Q 20 100 30 120" stroke="#DDD" stroke-width="2" fill="none"/>
+    <path d="M 40 75 Q 30 100 40 125" stroke="#DDD" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- Right Wing -->
+  <g id="right-wing">
+    <ellipse cx="150" cy="100" rx="35" ry="60" fill="#F5E6D3" opacity="0.9">
+      <animate attributeName="ry" values="60;70;60" dur="1.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.9;1;0.9" dur="1.5s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="155" cy="95" rx="30" ry="50" fill="#FFD700" opacity="0.7">
+      <animate attributeName="ry" values="50;60;50" dur="1.5s" repeatCount="indefinite"/>
+    </ellipse>
+    <!-- Wing feathers -->
+    <path d="M 170 80 Q 180 100 170 120" stroke="#DDD" stroke-width="2" fill="none"/>
+    <path d="M 160 75 Q 170 100 160 125" stroke="#DDD" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- Dollar Bill Body -->
+  <g id="dollar-bill">
+    <rect x="70" y="70" width="60" height="60" rx="5" fill="#85BB65" stroke="#2E7D32" stroke-width="2"/>
+
+    <!-- Dollar decorative border -->
+    <rect x="73" y="73" width="54" height="54" rx="3" fill="none" stroke="#2E7D32" stroke-width="1" stroke-dasharray="2,2"/>
+
+    <!-- Dollar Sign $ -->
+    <text x="100" y="110" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#2E7D32" text-anchor="middle">$</text>
+
+    <!-- Corner decorations -->
+    <circle cx="80" cy="80" r="3" fill="#FFD700"/>
+    <circle cx="120" cy="80" r="3" fill="#FFD700"/>
+    <circle cx="80" cy="120" r="3" fill="#FFD700"/>
+    <circle cx="120" cy="120" r="3" fill="#FFD700"/>
+
+    <!-- Shine effect -->
+    <ellipse cx="85" cy="85" rx="8" ry="5" fill="white" opacity="0.4">
+      <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2s" repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+
+  <!-- Floating animation for the whole group -->
+  <animateTransform
+    attributeName="transform"
+    attributeType="XML"
+    type="translate"
+    values="0,0; 0,-10; 0,0"
+    dur="2s"
+    repeatCount="indefinite"/>
+</svg>
