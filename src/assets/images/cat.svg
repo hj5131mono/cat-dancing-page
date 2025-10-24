@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="bodyGrad" cx="35%" cy="35%">
+      <stop offset="0%" style="stop-color:#FFE5CC;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#FFB366;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF9E44;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="belly" cx="40%" cy="30%">
+      <stop offset="0%" style="stop-color:#FFF8F0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFE5CC;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+
+  <!-- Body -->
+  <ellipse cx="100" cy="130" rx="45" ry="50" fill="url(#bodyGrad)"/>
+
+  <!-- Belly -->
+  <ellipse cx="100" cy="140" rx="28" ry="35" fill="url(#belly)"/>
+
+  <!-- Head -->
+  <circle cx="100" cy="75" r="35" fill="url(#bodyGrad)"/>
+
+  <!-- Ears -->
+  <ellipse cx="75" cy="50" rx="12" ry="18" fill="url(#bodyGrad)"/>
+  <ellipse cx="125" cy="50" rx="12" ry="18" fill="url(#bodyGrad)"/>
+  <ellipse cx="75" cy="52" rx="7" ry="11" fill="#FFB8D1"/>
+  <ellipse cx="125" cy="52" rx="7" ry="11" fill="#FFB8D1"/>
+
+  <!-- Eyes - small and cute -->
+  <ellipse cx="88" cy="72" rx="4" ry="6" fill="#2C3E50"/>
+  <ellipse cx="112" cy="72" rx="4" ry="6" fill="#2C3E50"/>
+  <circle cx="87" cy="71" r="1.5" fill="#FFF" opacity="0.8"/>
+  <circle cx="111" cy="71" r="1.5" fill="#FFF" opacity="0.8"/>
+
+  <!-- Blush -->
+  <ellipse cx="70" cy="78" rx="8" ry="6" fill="#FFB8D1" opacity="0.3"/>
+  <ellipse cx="130" cy="78" rx="8" ry="6" fill="#FFB8D1" opacity="0.3"/>
+
+  <!-- Nose -->
+  <ellipse cx="100" cy="82" rx="3" ry="2.5" fill="#FF8FA3"/>
+
+  <!-- Mouth - simple smile -->
+  <path d="M 95 85 Q 100 88 105 85" stroke="#2C3E50" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Whiskers -->
+  <line x1="68" y1="75" x2="50" y2="73" stroke="#2C3E50" stroke-width="1" opacity="0.5"/>
+  <line x1="68" y1="80" x2="50" y2="80" stroke="#2C3E50" stroke-width="1" opacity="0.5"/>
+  <line x1="132" y1="75" x2="150" y2="73" stroke="#2C3E50" stroke-width="1" opacity="0.5"/>
+  <line x1="132" y1="80" x2="150" y2="80" stroke="#2C3E50" stroke-width="1" opacity="0.5"/>
+
+  <!-- Paws (front) -->
+  <ellipse cx="75" cy="160" rx="10" ry="8" fill="#FFB366"/>
+  <ellipse cx="125" cy="160" rx="10" ry="8" fill="#FFB366"/>
+
+  <!-- Legs (back) -->
+  <ellipse cx="85" cy="175" rx="8" ry="12" fill="url(#bodyGrad)"/>
+  <ellipse cx="115" cy="175" rx="8" ry="12" fill="url(#bodyGrad)"/>
+
+  <!-- Feet -->
+  <ellipse cx="85" cy="186" rx="9" ry="5" fill="#FFB366"/>
+  <ellipse cx="115" cy="186" rx="9" ry="5" fill="#FFB366"/>
+
+  <!-- Tail -->
+  <path d="M 140 135 Q 165 125 175 105 Q 180 90 175 75"
+        stroke="url(#bodyGrad)"
+        stroke-width="10"
+        fill="none"
+        stroke-linecap="round"/>
+</svg>

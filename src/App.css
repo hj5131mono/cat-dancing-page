@@ -1,0 +1,53 @@
+@keyframes neonGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 30px #ff00de,
+      0 0 40px #ff00de,
+      0 0 50px #ff00de;
+  }
+  50% {
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 15px #00ffff,
+      0 0 20px #00ffff,
+      0 0 25px #00ffff;
+  }
+}
+
+.App {
+  text-align: center;
+  padding: 10px;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App h1 {
+  color: white;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 4px;
+  animation: neonGlow 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .App h1 {
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .App h1 {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+}
